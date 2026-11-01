@@ -1,0 +1,340 @@
+/* 全体の基本設定 */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+}
+
+/* ヘッダー */
+header {
+    background-color: black;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+    /* 下線を消す */
+    margin: 0;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    /* 下線を消す */
+    margin: 0;
+    padding: 12px;
+    font-size: 16px;
+
+}
+
+/* ⑥ 成功メッセージ（緑の帯） */
+.success-message {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    margin: 0;
+    padding: 12px 20px;
+}
+
+/* エラーメッセージ（赤の帯） */
+.error-message {
+    background-color: #f8d7da;
+    color: #842029;
+    margin: 0;
+    padding: 12px 20px;
+}
+
+/* メインコンテンツのコンテナ */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ① & ③ 作成フォームのレイアウト */
+.create-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.create-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.create-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 検索フォームのレイアウト */
+.search-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 見出し */
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* ② Todoリストの行とボーダー */
+.todo-table-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    gap: 15px;
+}
+
+.todo-table-header .col-todo {
+    flex: 2;
+}
+
+.todo-table-header .col-category {
+    flex: 2.25;
+}
+
+.todo-list {
+    border-top: none;
+    width: 100%;
+}
+
+/* 各Todoの行（全体を左右に割り振る） */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+    gap: 15px;
+}
+
+.todo-content {
+    font-size: 16px;
+    flex: 1;
+    /* 余白を埋めるように広げる */
+}
+
+/* ② カテゴリリストの行とボーダー */
+.category-list {
+    border-top: 1px solid #ddd;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    /* 左右に配置 */
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+    /* 各行の下の薄い線 */
+    gap: 10px;
+}
+
+.category-content {
+    font-size: 16px;
+    flex: 1;
+    /* 余白を埋めるように広げる */
+}
+
+/* 更新フォーム全体（①テキスト、②セレクト、③更新ボタンを横並びにする） */
+.update-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    /* 残りの幅を埋める */
+    margin: 0;
+}
+
+/* ① 更新用のテキスト入力フォームの幅 */
+.update-input {
+    flex: 2;
+    /* 広めに取る */
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ② カテゴリ選択のセレクトボックスの幅 */
+.update-select {
+    flex: 1.5;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+.update-btn {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.delete-form {
+    margin: 0;
+    /* 余計なマージンを消す */
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {
+    font-family: sans-serif;
+}
+
+header h1 {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: left;
+    margin: 0;
+}
+
+header .error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    padding: 10px;
+    margin: 0;
+}
+
+header .success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    padding: 10px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.create-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.create-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.create-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+/* ② Todoリストの行とボーダー */
+.list {
+    border-top: 1px solid #ddd;
+}
+
+.list todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #ddd;
+    /* 各行の下の薄い線 */
+}
+
+.update-form button {
+    background: #0000ff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+
+}
+
+.delete-form button {
+    background: #ff0000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+
+}
