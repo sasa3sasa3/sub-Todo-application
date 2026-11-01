@@ -5,54 +5,73 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use App\Models\Category;
+use App\Http\Resources\TodoResource;
 
 class TodoController extends Controller
 {
+    // Todo一覧取得
     public function index()
     {
-        //N+1問題
-        //$todos = Todo::all();
+        $todos = Todo::with('category')->latest()->get();
 
-        $todos = Todo::with('category')->orderBy('created_at', 'desc')->get();
-        $categories = Category::all();
-
-        return view('todos.index', compact('todos', 'categories'));
+        return TodoResource::collection($todos);
     }
 
+    // Todo登録
     public function store(TodoRequest $request)
     {
-        //Todoの追加
+        dd('store reached');
+
         $validated = $request->validated();
 
         $todo = Todo::create($validated);
 
-        return redirect()->route('todos.index')->with('success', 'Todoを作成しました');
+        return response()->json([
+            'message' => 'Todoを作成しました',
+            'data' => $todo
+        ], 201);
     }
 
-    public function update(TodoRequest $request, $id)
+    // Todo詳細取得
+    public function show($id)
     {
-        //Todoの更新
-        $validated = $request->validated();
-        $todo = Todo::find($id);
-        $todo->update($validated);
+        $todo = Todo::with('category')->findOrFail($id);
 
-        return redirect()->route('todos.index')->with('success', 'Todoを更新しました');
-
+        return response()->json([
+            'message' => 'Todo取得成功',
+            'data' => $todo
+        ]);
     }
 
+    // Todo更新
+    public function update(TodoRequest $request, Todo $todo)
+    {
+        $validated = $request->validated();
+
+        $todo->update($request->validated());
+
+        return response()->json([
+            'message' => 'Todoを更新しました',
+            'data' => $todo
+        ]);
+    }
+
+    // Todo削除
     public function destroy($id)
     {
-        //Todoの削除
-        Todo::find($id)->delete();
+        $todo = Todo::findOrFail($id);
 
-        return redirect()->route('todos.index')->with('success', 'Todoを削除しました');
+        $todo->delete();
+
+        return response()->json([
+            'message' => 'Todoを削除しました'
+        ]);
     }
 
+    // Todo検索
     public function search(Request $request)
     {
-        //Todoの検索
-        $query = Todo::query()->with('category');
+        $query = Todo::with('category');
 
         if ($request->filled('keyword')) {
             $query->where(
@@ -71,8 +90,9 @@ class TodoController extends Controller
 
         $todos = $query->get();
 
-        $categories = Category::all();
-
-        return view('todos.index', compact('todos', 'categories'));
+        return response()->json([
+            'message' => '検索成功',
+            'data' => $todos
+        ]);
     }
 }

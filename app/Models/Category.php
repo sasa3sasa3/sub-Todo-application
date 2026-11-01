@@ -13,4 +13,9 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
 }
